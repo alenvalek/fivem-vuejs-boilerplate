@@ -11,8 +11,6 @@
     <img alt="GitHub" src="https://img.shields.io/github/license/alenvalek/fivem-vuejs-boilerplate">
     <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/alenvalek/fivem-vuejs-boilerplate">
     <img alt="Maintenance" src="https://img.shields.io/maintenance/yes/2022">
-    <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/alenvalek/fivem-vuejs-boilerplate">
-    <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/alenvalek/fivem-vuejs-boilerplate">
 </p>
 <p align="center">
 <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/alenvalek/fivem-vuejs-boilerplate?style=social">
