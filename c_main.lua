@@ -3,6 +3,7 @@ local display = false
 -- SendPlayerDataToApp() -> example of sending data to the app and changing its corresponding state in the vuex store
 function SendPlayerDataToApp()
    local playerID = PlayerPedId()
+   print(playerID)
    SendNUIMessage({
       type = 'setPlayerID',
       data = playerID
@@ -31,6 +32,8 @@ RegisterNUICallback('receiveData', function(data)
    local username = data.userName
    local msg = data.message
    local type = data.typeOfMessage
+
+   print(data)
 
    local color = {}
    if (type == "success") then
@@ -70,6 +73,6 @@ end)
 
 -- Command used to open the view ( you can make the view open on any condition of your choice )
 RegisterCommand("openview", function()
-   sendPlayerDataToApp()
+   SendPlayerDataToApp()
    SetDisplay(not display, "base")
 end)
