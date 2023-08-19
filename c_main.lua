@@ -3,7 +3,7 @@ local display = false
 -- SendPlayerDataToApp() -> example of sending data to the app and changing its corresponding state in the vuex store
 function SendPlayerDataToApp()
    local playerID = PlayerPedId()
-   SendNUIMessage({
+      SendNUIMessage({
       type = 'setPlayerID',
       data = playerID
    })
@@ -61,7 +61,7 @@ end)
 
 -- This callback triggers only if an error occurs
 RegisterNUICallback('error', function(data)
-   TriggerEvent("chat:addMessage", {
+      TriggerEvent("chat:addMessage", {
       color = { 255, 100, 100 },
       multiline = true,
       args = { data.error }

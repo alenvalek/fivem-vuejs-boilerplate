@@ -17,8 +17,7 @@ ui_page {
 
 files {
    "html/dist/index.html",
-   "html/dist/js/*.*",
-   "html/dist/css/*.*"
+   "html/dist/assets/*.*",
 }
 
 lua54 'yes'

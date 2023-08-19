@@ -1,9 +1,9 @@
-import axios from "axios";
+import axios, { AxiosInstance } from "axios";
 
 // change the baseURL to whatever your resource is called
 // example -> baseURL: "https://<resource_name_here>/"
 // connection has to be secure ( HTTPS )
-const api = axios.create({
+const api: AxiosInstance = axios.create({
 	baseURL: "https://fivem-vue-boilerplate/",
 });
 
