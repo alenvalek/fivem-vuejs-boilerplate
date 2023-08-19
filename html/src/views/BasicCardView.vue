@@ -47,10 +47,14 @@
 <script lang="ts">
 import { Ref, ref } from "vue";
 import api from "@/api/axios";
+import { useGlobalStore } from "../store/global";
 
 export default {
   name: "BasicCardView",
   setup() {
+
+    const globalStore = useGlobalStore();
+
     const colorOptions: Ref<string[]> = ref([
       "success",
       "error",
@@ -61,7 +65,7 @@ export default {
     const error: Ref<string> = ref("");
     const userName: Ref<string> = ref("");
     const message: Ref<string> = ref("");
-    const playerID: Ref<string> = ref("test");
+    const playerID: string = globalStore.$state.playerID;
 
     const sendError = (text: string) => {
       error.value = text;
@@ -87,7 +91,7 @@ export default {
           message: message.value,
           typeOfMessage: typeOfMessage.value,
         });
-      } catch (error) {
+      } catch (error: any) {
         await api.post("error", error);
       }
     };
