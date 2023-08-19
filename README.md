@@ -1,3 +1,4 @@
+
 ## THIS IS STILL AN UNSTABLE BRANCH, PLEASE USE THE MAIN BRANCH
 
 <p align="center">
@@ -12,7 +13,7 @@
     <img alt="GitHub package.json version (subfolder of monorepo)" src="https://img.shields.io/github/package-json/v/alenvalek/fivem-vuejs-boilerplate?filename=html%2Fpackage.json">
     <img alt="GitHub" src="https://img.shields.io/github/license/alenvalek/fivem-vuejs-boilerplate">
     <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/alenvalek/fivem-vuejs-boilerplate">
-    <img alt="Maintenance" src="https://img.shields.io/maintenance/yes/2022">
+    <img alt="Maintenance" src="https://img.shields.io/maintenance/yes/2023">
 </p>
 <p align="center">
 <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/alenvalek/fivem-vuejs-boilerplate?style=social">
@@ -24,8 +25,8 @@ FiveM VueJS Boilerplate is a template for making your own NUI-s for FiveM using 
 <hr>
 
 ## Key features
-* Vuex pre-implemented with examples of usage
-* Vuetify pre-implemented with examples of usage
+* Pinia state management pre-implemented with examples of usage
+* Vuetify 3 pre-implemented with examples of usage
 * Axios pre-implemented with examples of usage
 * Client code pre-implemented with examples of usage
 * Watch script pre-implemented for building out the site for ui_view in-game
@@ -52,7 +53,7 @@ After that you are ready to start building out your dream NUI.
 ### Development tips
 Run the following command to develop using a live server ( in browser )
 ```bash
-npm run serve
+npm run dev
 ```
 Run the following command to build out your project for use in game
 ```bash
@@ -68,7 +69,8 @@ npm run watch
 * [Lua](https://www.lua.org)
 * [VueJS](https://vuejs.org)
 * [VuetifyJS](https://vuetifyjs.com/en/)
-* [Vuex](https://vuex.vuejs.org)
+* [Pinia](https://pinia.vuejs.org/)
+* [Typescript](https://www.typescriptlang.org/)
 
 ## Contributing
 If you want to contribute to a project and make it better, every help is welcome.
