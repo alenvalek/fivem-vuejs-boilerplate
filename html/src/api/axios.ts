@@ -4,7 +4,7 @@ import axios, { AxiosInstance } from "axios";
 // example -> baseURL: "https://<resource_name_here>/"
 // connection has to be secure ( HTTPS )
 const api: AxiosInstance = axios.create({
-	baseURL: "https://vue-template/",
+	baseURL: "https://fivem-vue-boilerplate/",
 });
 
 export default api;
