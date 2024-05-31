@@ -34,90 +34,73 @@
           <v-avatar :color="typeOfMessage"></v-avatar>
         </v-layout>
         <v-card-actions>
-          <v-btn variant="elevated" class="ml-auto" color="primary" @click="sendData"
+          <v-btn
+            variant="elevated"
+            class="ml-auto"
+            color="primary"
+            @click="sendData"
             >Send data</v-btn
           >
-          <v-btn variant="elevated" elevated color="error" @click="exitMenu">X</v-btn>
+          <v-btn variant="elevated" elevated color="error" @click="exitMenu"
+            >X</v-btn
+          >
         </v-card-actions>
       </v-card>
     </v-row>
   </v-container>
 </template>
+<script setup lang="ts">
+import { ref } from "vue";
+import { useGlobalStore } from "../stores/global";
+import api from "../api/axios";
 
-<script lang="ts">
-import { Ref, ref } from "vue";
-import api from "@/api/axios";
-import { useGlobalStore } from "../store/global";
+const globalStore = useGlobalStore();
 
-export default {
-  name: "BasicCardView",
-  setup() {
+const colorOptions = ref<string[]>(["success", "error", "warning", "primary"]);
 
-    const globalStore = useGlobalStore();
+const typeOfMessage = ref<string>("");
+const error = ref<string>("");
+const userName = ref<string>("");
+const message = ref<string>("");
+const playerID: string = globalStore.$state.playerID;
 
-    const colorOptions: Ref<string[]> = ref([
-      "success",
-      "error",
-      "warning",
-      "primary",
-    ]);
-    const typeOfMessage: Ref<string> = ref("");
-    const error: Ref<string> = ref("");
-    const userName: Ref<string> = ref("");
-    const message: Ref<string> = ref("");
-    const playerID: string = globalStore.$state.playerID;
+const sendError = (text: string) => {
+  error.value = text;
+  setTimeout(() => {
+    error.value = "";
+  }, 3000);
+};
 
-    const sendError = (text: string) => {
-      error.value = text;
-      setTimeout(() => {
-        error.value = "";
-      }, 3000);
-    };
+const sendData = async (): Promise<void> => {
+  if (userName.value.length < 3) {
+    return sendError("Your name should be longer than 2 characters.");
+  }
+  if (message.value.length < 4) {
+    return sendError("Your message should be longer than 3 characters.");
+  }
+  if (!typeOfMessage.value) {
+    return sendError("You must specify the type of message.");
+  }
 
-    const sendData = async (): Promise<void> => {
-      if (userName.value.length < 3) {
-        return sendError("Your name should be longer than 2 characters.");
-      }
-      if (message.value.length < 4) {
-        return sendError("Your message should be longer than 3 characters.");
-      }
-      if (!typeOfMessage.value) {
-        return sendError("You must specify the type of message.");
-      }
+  try {
+    await api.post("receiveData", {
+      userName: userName.value,
+      message: message.value,
+      typeOfMessage: typeOfMessage.value,
+    });
+  } catch (error: any) {
+    await api.post("error", error);
+  }
+};
 
-      try {
-        await api.post("receiveData", {
-          userName: userName.value,
-          message: message.value,
-          typeOfMessage: typeOfMessage.value,
-        });
-      } catch (error: any) {
-        await api.post("error", error);
-      }
-    };
-
-    const exitMenu = async () => {
-      try {
-        await api.post("exitMenu");
-      } catch (error: any) {
-        await api.post("error", error.message);
-      }
-    };
-
-    return {
-      colorOptions,
-      typeOfMessage,
-      error,
-      userName,
-      message,
-      playerID,
-      sendData,
-      exitMenu,
-    };
-  },
+const exitMenu = async () => {
+  try {
+    await api.post("exitMenu");
+  } catch (error: any) {
+    await api.post("error", error.message);
+  }
 };
 </script>
-
 <style scoped>
 .previewLayout {
   display: flex;
