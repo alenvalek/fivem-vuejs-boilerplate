@@ -1,107 +1,81 @@
-<p align="center">
-    <a href="https://github.com/alenvalek/fivem-vuejs-boilerplate">
-        <img src="https://i.ibb.co/NrJDyC2/Five-M-Vue-JS-Boilerplate.png" alt="FiveM VueJS Boilerplate"/>
-    </a>
-</p>
+# Vuetify (Default)
 
-<h4 align="center">FiveM VueJS Boilerplate for building beautiful NUI-s without hassle of setting everything up</h4>
+This is the official scaffolding tool for Vuetify, designed to give you a head start in building your new Vuetify application. It sets up a base template with all the necessary configurations and standard directory structure, enabling you to begin development without the hassle of setting up the project from scratch.
 
-<p align="center">
-    <img alt="GitHub package.json version (subfolder of monorepo)" src="https://img.shields.io/github/package-json/v/alenvalek/fivem-vuejs-boilerplate?filename=html%2Fpackage.json">
-    <img alt="GitHub" src="https://img.shields.io/github/license/alenvalek/fivem-vuejs-boilerplate">
-    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/alenvalek/fivem-vuejs-boilerplate">
-    <img alt="Maintenance" src="https://img.shields.io/maintenance/yes/2022">
-</p>
-<p align="center">
-<img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/alenvalek/fivem-vuejs-boilerplate?style=social">
-    <img alt="GitHub forks" src="https://img.shields.io/github/forks/alenvalek/fivem-vuejs-boilerplate?style=social">
-</p>
-<hr>
+## ❗️ Important Links
 
-FiveM VueJS Boilerplate is a template for making your own NUI-s for FiveM using VueJS. It removes the hassle of setting everything up on your own and constantly dealing with errors and mistakes before you finally get it up and running. VueJS allows you to build out your NUI-s faster and it eases the logic implementation. With this boilerplate all you have to do is let your mind go wild and free on a creative spree and start making your own interface designs.
-<hr>
+- 📄 [Docs](https://vuetifyjs.com/)
+- 🚨 [Issues](https://issues.vuetifyjs.com/)
+- 🏬 [Store](https://store.vuetifyjs.com/)
+- 🎮 [Playground](https://play.vuetifyjs.com/)
+- 💬 [Discord](https://community.vuetifyjs.com)
 
-## Key features
-* Vuex pre-implemented with examples of usage
-* Vuetify pre-implemented with examples of usage
-* Axios pre-implemented with examples of usage
-* Client code pre-implemented with examples of usage
-* Watch script pre-implemented for building out the site for ui_view in-game
-<hr>
+## 💿 Install
 
-## Installation
-Download the zip files or clone the repository:
+Set up your project using your preferred package manager. Use the corresponding command to install the dependencies:
+
+| Package Manager                                                | Command        |
+|---------------------------------------------------------------|----------------|
+| [yarn](https://yarnpkg.com/getting-started)                   | `yarn install` |
+| [npm](https://docs.npmjs.com/cli/v7/commands/npm-install)     | `npm install`  |
+| [pnpm](https://pnpm.io/installation)                          | `pnpm install` |
+| [bun](https://bun.sh/#getting-started)                        | `bun install`  |
+
+After completing the installation, your environment is ready for Vuetify development.
+
+## ✨ Features
+
+- 🖼️ **Optimized Front-End Stack**: Leverage the latest Vue 3 and Vuetify 3 for a modern, reactive UI development experience. [Vue 3](https://v3.vuejs.org/) | [Vuetify 3](https://vuetifyjs.com/en/)
+- 🗃️ **State Management**: Integrated with [Pinia](https://pinia.vuejs.org/), the intuitive, modular state management solution for Vue.
+- 🚦 **Routing and Layouts**: Utilizes Vue Router for SPA navigation and vite-plugin-vue-layouts for organizing Vue file layouts. [Vue Router](https://router.vuejs.org/) | [vite-plugin-vue-layouts](https://github.com/JohnCampionJr/vite-plugin-vue-layouts)
+- 💻 **Enhanced Development Experience**: Benefit from TypeScript's static type checking and the ESLint plugin suite for Vue, ensuring code quality and consistency. [TypeScript](https://www.typescriptlang.org/) | [ESLint Plugin Vue](https://eslint.vuejs.org/)
+- ⚡ **Next-Gen Tooling**: Powered by Vite, experience fast cold starts and instant HMR (Hot Module Replacement). [Vite](https://vitejs.dev/)
+- 🧩 **Automated Component Importing**: Streamline your workflow with unplugin-vue-components, automatically importing components as you use them. [unplugin-vue-components](https://github.com/antfu/unplugin-vue-components)
+- 🛠️ **Strongly-Typed Vue**: Use vue-tsc for type-checking your Vue components, and enjoy a robust development experience. [vue-tsc](https://github.com/johnsoncodehk/volar/tree/master/packages/vue-tsc)
+
+These features are curated to provide a seamless development experience from setup to deployment, ensuring that your Vuetify application is both powerful and maintainable.
+
+## 💡 Usage
+
+This section covers how to start the development server and build your project for production.
+
+### Starting the Development Server
+
+To start the development server with hot-reload, run the following command. The server will be accessible at [http://localhost:3000](http://localhost:3000):
+
 ```bash
-git clone https://github.com/alenvalek/fivem-vuejs-boilerplate.git
+yarn dev
 ```
-Open the project in a terminal of your choice and change the working directory into the html folder:
+
+(Repeat for npm, pnpm, and bun with respective commands.)
+
+> Add NODE_OPTIONS='--no-warnings' to suppress the JSON import warnings that happen as part of the Vuetify import mapping. If you are on Node [v21.3.0](https://nodejs.org/en/blog/release/v21.3.0) or higher, you can change this to NODE_OPTIONS='--disable-warning=5401'. If you don't mind the warning, you can remove this from your package.json dev script.
+
+### Building for Production
+
+To build your project for production, use:
+
 ```bash
-cd ./html
-```
-Install the required node packages
-```bash
-npm install
+yarn build
 ```
 
-After that you can modify the api file inside html/api/axios.js in case you're planning to rename the resource. \
-After that you are ready to start building out your dream NUI.
+(Repeat for npm, pnpm, and bun with respective commands.)
 
+Once the build process is completed, your application will be ready for deployment in a production environment.
 
-### Development tips
-Run the following command to develop using a live server ( in browser )
-```bash
-npm run serve
-```
-Run the following command to build out your project for use in game
-```bash
-npm run build
-```
-Run the following command to build out the project for use in game every time a change has occured ( keep in mind you still have to restart the resource on your server for the changes to take effect ) **[RECOMMENDED]**
-```bash
-npm run watch
-```
-<hr>
+## 💪 Support Vuetify Development
 
-## Technologies
-* [Lua](https://www.lua.org)
-* [VueJS](https://vuejs.org)
-* [VuetifyJS](https://vuetifyjs.com/en/)
-* [Vuex](https://vuex.vuejs.org)
+This project is built with [Vuetify](https://vuetifyjs.com/en/), a UI Library with a comprehensive collection of Vue components. Vuetify is an MIT licensed Open Source project that has been made possible due to the generous contributions by our [sponsors and backers](https://vuetifyjs.com/introduction/sponsors-and-backers/). If you are interested in supporting this project, please consider:
 
-## Contributing
-If you want to contribute to a project and make it better, every help is welcome.
-### How to contribute
-1. **Fork** the repo to your own personal GitHub
-2. **Clone** the project to your own machine
-3. **Commit** changes to your own branch
-4. **Push** your work to your own branch
-5. Submit a **pull** request so changes can be reviewed before the merge 
+- [Requesting Enterprise Support](https://support.vuetifyjs.com/)
+- [Sponsoring John on Github](https://github.com/users/johnleider/sponsorship)
+- [Sponsoring Kael on Github](https://github.com/users/kaelwd/sponsorship)
+- [Supporting the team on Open Collective](https://opencollective.com/vuetify)
+- [Becoming a sponsor on Patreon](https://www.patreon.com/vuetify)
+- [Becoming a subscriber on Tidelift](https://tidelift.com/subscription/npm/vuetify)
+- [Making a one-time donation with Paypal](https://paypal.me/vuetify)
 
-NOTE: Be sure to merge the latest from "upstream" before making a merge request.
+## 📑 License
+[MIT](http://opensource.org/licenses/MIT)
 
-## License and license summary
-FiveM BoilerPlate is licensed under **MIT License**
-
-```
-MIT License
-
-Copyright (c) 2022 Alen Valek
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
+Copyright (c) 2016-present Vuetify, LLC

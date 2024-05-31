@@ -3,86 +3,58 @@
     <component :is="currentView" />
   </v-app>
 </template>
-
-<script lang="ts">
+<script setup>
+import { ref, shallowRef, onMounted, onUnmounted } from "vue";
+import { useGlobalStore } from "./stores/global";
 import BasicCardView from "./views/BasicCardView.vue";
-import {
-  Ref,
-  ShallowRef,
-  ref,
-  shallowRef,
-  Component,
-  onMounted,
-  onUnmounted,
-} from "vue";
-import { useGlobalStore } from "./store/global";
 
-interface Handlers {
-  [key: string]: (itemData: any) => void;
-}
+const currentView = shallowRef(BasicCardView);
+const isVisible = ref(false);
+const globalStore = useGlobalStore();
 
-export default {
-  name: "App",
-  setup() {
-    const currentView: ShallowRef<Component> = shallowRef(BasicCardView);
-    const isVisible: Ref<Boolean> = ref(false);
-    const globalStore = useGlobalStore();
+const toggleShow = (view = "") => {
+  switch (view) {
+    case "base":
+      currentView.value = BasicCardView;
+      break;
+    default:
+      break;
+  }
+  isVisible.value = !isVisible.value;
+};
 
-    const handlers: Handlers = {
-      toggleShow: (itemData: any): void => {
-        if (itemData.payload?.length > 0 && itemData.payload[0]) {
-          return toggleShow(itemData.payload[0]);
-        }else {
-          return toggleShow();
-        }
-      },
-      setPlayerID: (itemData: any): void => {
-        if(itemData.data) {
-          return setPlayerID(itemData.data)
-        } else {
-          return
-        }
-      }
-    };
+const setPlayerID = (id) => {
+  globalStore.$state.playerID = id;
+};
 
-    const toggleShow = (view: string = ""): void => {
-      switch (view) {
-        case "base":
-          currentView.value = BasicCardView;
-          break;
-        default:
-          break;
-      }
-      isVisible.value = !isVisible.value;
-    };
-
-    const handleMessageListener = (event: MessageEvent): void => {
-      const itemData: any = event?.data;
-      if (handlers[itemData.type]) handlers[itemData.type](itemData);
-    };
-
-    const setPlayerID = (id: string) => {
-      globalStore.$state.playerID = id;
-    };
-
-    onMounted(() => {
-      window.addEventListener("message", handleMessageListener);
-    });
-
-    onUnmounted(() => {
-      window.removeEventListener("message", handleMessageListener, false);
-    });
-
-    return {
-      currentView,
-      isVisible,
-      toggleShow,
-      setPlayerID,
-    };
+const handlers = {
+  toggleShow: (itemData) => {
+    if (itemData.payload?.length > 0 && itemData.payload[0]) {
+      toggleShow(itemData.payload[0]);
+    } else {
+      toggleShow();
+    }
+  },
+  setPlayerID: (itemData) => {
+    if (itemData.data) {
+      setPlayerID(itemData.data);
+    }
   },
 };
-</script>
 
+const handleMessageListener = (event) => {
+  const itemData = event?.data;
+  if (handlers[itemData.type]) handlers[itemData.type](itemData);
+};
+
+onMounted(() => {
+  window.addEventListener("message", handleMessageListener);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("message", handleMessageListener);
+});
+</script>
 <style>
 ::-webkit-scrollbar {
   width: 0;
@@ -90,5 +62,9 @@ export default {
 }
 .v-application {
   background: rgb(0, 0, 0, 0.5) !important;
+}
+
+:root {
+  color-scheme: none !important;
 }
 </style>
