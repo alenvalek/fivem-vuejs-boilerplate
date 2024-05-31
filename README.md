@@ -10,7 +10,7 @@
     <img alt="GitHub package.json version (subfolder of monorepo)" src="https://img.shields.io/github/package-json/v/alenvalek/fivem-vuejs-boilerplate?filename=html%2Fpackage.json">
     <img alt="GitHub" src="https://img.shields.io/github/license/alenvalek/fivem-vuejs-boilerplate">
     <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/alenvalek/fivem-vuejs-boilerplate">
-    <img alt="Maintenance" src="https://img.shields.io/maintenance/yes/2023">
+    <img alt="Maintenance" src="https://img.shields.io/maintenance/yes/2024">
 </p>
 <p align="center">
 <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/alenvalek/fivem-vuejs-boilerplate?style=social">
