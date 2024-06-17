@@ -1,6 +1,3 @@
-
-## THIS IS STILL AN UNSTABLE BRANCH, PLEASE USE THE MAIN BRANCH
-
 <p align="center">
     <a href="https://github.com/alenvalek/fivem-vuejs-boilerplate">
         <img src="https://i.ibb.co/NrJDyC2/Five-M-Vue-JS-Boilerplate.png" alt="FiveM VueJS Boilerplate"/>
@@ -13,7 +10,7 @@
     <img alt="GitHub package.json version (subfolder of monorepo)" src="https://img.shields.io/github/package-json/v/alenvalek/fivem-vuejs-boilerplate?filename=html%2Fpackage.json">
     <img alt="GitHub" src="https://img.shields.io/github/license/alenvalek/fivem-vuejs-boilerplate">
     <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/alenvalek/fivem-vuejs-boilerplate">
-    <img alt="Maintenance" src="https://img.shields.io/maintenance/yes/2023">
+    <img alt="Maintenance" src="https://img.shields.io/maintenance/yes/2024">
 </p>
 <p align="center">
 <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/alenvalek/fivem-vuejs-boilerplate?style=social">
@@ -89,7 +86,7 @@ FiveM BoilerPlate is licensed under **MIT License**
 ```
 MIT License
 
-Copyright (c) 2022 Alen Valek
+Copyright (c) 2023 Alen Valek
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
